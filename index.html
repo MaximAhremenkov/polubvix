@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Таблица случайных цветов</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    function generateTable() {
+      var table = document.getElementById("colorTable");
+      for (var i = 0; i < 5; i++) {
+        var row = table.insertRow();
+        for (var j = 0; j < 5; j++) {
+          var cell = row.insertCell();
+          var color = generateRandomColor();
+          cell.style.backgroundColor = color;
+          cell.innerHTML = color;
+        }
+      }
+    } 
+    function generateRandomColor() {
+      var r = Math.round(255 * Math.random()).toString(16);
+      var g = Math.round(255 * Math.random()).toString(16);
+      var b = Math.round(255 * Math.random()).toString(16);
+      return "#" + r + g + b;
+    }
+  </script>
+</head>
+<body>
+  <h1>Таблица случайных цветов</h1>
+  <button onclick="generateTable()">Создать таблицу</button>
+  <table id="colorTable"></table>
+</body>
+</html>
